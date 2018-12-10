@@ -1,0 +1,24 @@
+Tennis Configure App Mvp
+------------------------
+
+Brief
+---
+More user friendly replace for tennis.org.nz
+ - View interclub results
+ - Player profile
+ - player stats
+ - club profile
+ - club stats
+ - scrape data from tennis.org.nz
+ - 
+
+ToDo
+----
+things to investigate
+- .net core
+- site scrape player profile data
+- hosting with scraping
+- ux page by page design
+- maybe mobile app
+- domain name
+- 
