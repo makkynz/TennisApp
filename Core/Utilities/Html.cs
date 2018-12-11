@@ -22,10 +22,10 @@ namespace Core.Utilities
             return html;
         }
 
-        public static HtmlDocument GetDocument(Uri uri)
+        public static HtmlDocument GetDocument(string url)
         {
             var doc = new HtmlDocument();
-            doc.LoadHtml(Get(uri));
+            doc.LoadHtml(Get(new Uri(url)));
             return doc;
         }
 
