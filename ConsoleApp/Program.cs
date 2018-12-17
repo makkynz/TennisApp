@@ -1,4 +1,5 @@
 ﻿using System;
+using Core.Services;
 
 namespace ConsoleApp
 {
@@ -6,7 +7,17 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+           
+            Console.WriteLine($"Now: {DateTime.Now}");
+            
+            var players = new TennisNZScrapper().GetAllPlayers();
+
+            Console.WriteLine($"Player count: {players.Count}");
+            
+            Console.WriteLine($"Finish: {DateTime.Now}");
+
+            Console.ReadLine();
+
         }
     }
 }

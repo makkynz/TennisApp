@@ -31,5 +31,16 @@ namespace Tests
             Assert.IsTrue(matches.Count > 0);
         }
 
+        [TestMethod]
+        public void Can_Get_All_Players()
+        {
+            var scrapper = new Core.Services.TennisNZScrapper();
+
+            List<Player> players = scrapper.GetAllPlayers();
+            
+            Assert.IsNotNull(players);
+            Assert.IsTrue(players.Count > 10);
+        }
+
     }
 }

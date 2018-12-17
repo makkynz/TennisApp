@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Core.Extensions
@@ -15,6 +16,11 @@ namespace Core.Extensions
             return null;
         }
 
-        
+        public static string GetNumbers(this string input)
+        {
+            return new string(input.Where(c => char.IsDigit(c)).ToArray());
+        }
+
+
     }
 }
