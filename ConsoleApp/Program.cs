@@ -1,5 +1,5 @@
 ﻿using System;
-using Core.Services;
+using Core.Services.TennisNzScrapper;
 
 namespace ConsoleApp
 {
@@ -10,7 +10,7 @@ namespace ConsoleApp
            
             Console.WriteLine($"Now: {DateTime.Now}");
             
-            var players = new TennisNZScrapper().GetAllPlayers();
+            var players = new GradingListPage().GetAllPlayers();
 
             Console.WriteLine($"Player count: {players.Count}");
             

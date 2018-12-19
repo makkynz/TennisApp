@@ -1,18 +1,19 @@
 using System.Collections.Generic;
 using Core.Models;
+using Core.Services.TennisNzScrapper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Tests
+namespace TennisNzScrapperTests
 {
     [TestClass]
-    public class TennisNZScrapperTests
+    public class TennisNzScrapperTests
     {
         private string _playerIdAnthonyMarshall = "104869";
 
         [TestMethod]
         public void Can_Get_PlayerProfile()
         {
-            var scrapper = new Core.Services.TennisNZScrapper();
+            var scrapper = new Core.Services.TennisNzScrapper.PlayerProfilePage();
 
             var player =  scrapper.GetPlayerProfile(_playerIdAnthonyMarshall);
 
@@ -23,7 +24,7 @@ namespace Tests
         [TestMethod]
         public void Can_Parse_PlayerResults()
         {
-            var scrapper = new Core.Services.TennisNZScrapper();
+            var scrapper = new Core.Services.TennisNzScrapper.PlayerProfilePage();
 
             List<Match> matches = scrapper.GetPlayerResults(_playerIdAnthonyMarshall);
 
@@ -34,9 +35,8 @@ namespace Tests
         [TestMethod]
         public void Can_Get_All_Players()
         {
-            var scrapper = new Core.Services.TennisNZScrapper();
-
-            List<Player> players = scrapper.GetAllPlayers();
+           
+            List<Player> players = new GradingListPage().GetAllPlayers();
             
             Assert.IsNotNull(players);
             Assert.IsTrue(players.Count > 10);

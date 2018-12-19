@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Core.Utilities;
 
 namespace Core.Extensions
 {
@@ -21,6 +22,14 @@ namespace Core.Extensions
             return new string(input.Where(c => char.IsDigit(c)).ToArray());
         }
 
+        public static int ToInt(this string input)
+        {
+            return Convert.ToInt32(input);
+        }
 
+        public static T ToObject<T>(this string input)
+        {
+            return Json.Deserialise<T>(input);
+        }
     }
 }
