@@ -7,10 +7,10 @@ namespace Core.DB.Models
     {
         public Player()
         {
-            MatchPlayer1 = new HashSet<Match>();
-            MatchPlayer2 = new HashSet<Match>();
-            MatchPlayer3 = new HashSet<Match>();
-            MatchPlayer4 = new HashSet<Match>();
+            MatchPlayer1s = new HashSet<Match>();
+            MatchPlayer2s = new HashSet<Match>();
+            MatchPlayer3s = new HashSet<Match>();
+            MatchPlayer4s = new HashSet<Match>();
         }
 
         public Guid Id { get; set; }
@@ -25,11 +25,12 @@ namespace Core.DB.Models
         public int? DoubleGradingPoints { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime DateModified { get; set; }
+        public string Woot { get; set; }
 
         public virtual Club Club { get; set; }
-        public virtual ICollection<Match> MatchPlayer1 { get; set; }
-        public virtual ICollection<Match> MatchPlayer2 { get; set; }
-        public virtual ICollection<Match> MatchPlayer3 { get; set; }
-        public virtual ICollection<Match> MatchPlayer4 { get; set; }
+        public virtual ICollection<Match> MatchPlayer1s { get; set; }
+        public virtual ICollection<Match> MatchPlayer2s { get; set; }
+        public virtual ICollection<Match> MatchPlayer3s { get; set; }
+        public virtual ICollection<Match> MatchPlayer4s { get; set; }
     }
 }

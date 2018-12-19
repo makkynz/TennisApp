@@ -35,7 +35,6 @@ namespace TennisNzScrapperTests
         [TestMethod]
         public void Can_Get_All_Players()
         {
-           
             List<Player> players = new GradingListPage().GetAllPlayers();
             
             Assert.IsNotNull(players);

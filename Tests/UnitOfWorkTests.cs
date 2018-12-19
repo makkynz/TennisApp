@@ -18,9 +18,9 @@ namespace UnitOfWorkTests
             seed.BuildFromEmptyDb(true);
 
             var playerCount = 0;
-            using (var db = new TennisAPpContext())
+            using (var db = new TennisAppContext())
             {
-                playerCount = db.Player.Count();
+                playerCount = db.Players.Count();
             }
             
             Assert.IsTrue(playerCount > 100);

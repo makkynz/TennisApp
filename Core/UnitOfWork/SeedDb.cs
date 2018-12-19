@@ -22,18 +22,18 @@ namespace Core.UnitOfWork
             List<Models.Player> tennisNzPlayers = new GradingListPage().GetAllPlayers(fromCache);
            
 
-            using (var db = new TennisAPpContext())
+            using (var db = new TennisAppContext())
             {
-                db.Database.ExecuteSqlCommand("DELETE FROM Player");
-                db.Database.ExecuteSqlCommand("DELETE FROM Club");
+                db.Database.ExecuteSqlCommand("DELETE FROM Players");
+                db.Database.ExecuteSqlCommand("DELETE FROM Clubs");
 
-                var knownClubs = db.Club.ToList();
+                var knownClubs = db.Clubs.ToList();
                 foreach (var tennisNzPlayer in tennisNzPlayers)
                 {
                     var club = GetOrCreateClub(db, knownClubs, tennisNzPlayer);
                     var player = PopulatePlayer(tennisNzPlayer, club);
 
-                    db.Player.Add(player);
+                    db.Players.Add(player);
 
                    
                 }
@@ -58,7 +58,7 @@ namespace Core.UnitOfWork
             };
         }
 
-        private Club GetOrCreateClub(TennisAPpContext db, List<Club> knownClubs, Models.Player tennisNzPlayer)
+        private Club GetOrCreateClub(TennisAppContext db, List<Club> knownClubs, Models.Player tennisNzPlayer)
         {
             //check if club is known
             var club = knownClubs.SingleOrDefault(c => c.Name.Equals(tennisNzPlayer.Club));
@@ -69,7 +69,7 @@ namespace Core.UnitOfWork
                     Id = Guid.NewGuid(),
                     Name = tennisNzPlayer.Club,
                 };
-                db.Club.Add(club);
+                db.Clubs.Add(club);
                 knownClubs.Add(club);
             }
 

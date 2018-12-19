@@ -1,0 +1,1 @@
+﻿Scaffold-DbContext "Server=.\SQLExpress;Database=TennisApp;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir DB\Models -force

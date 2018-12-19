@@ -7,13 +7,13 @@ namespace Core.DB.Models
     {
         public Club()
         {
-            Player = new HashSet<Player>();
+            Players = new HashSet<Player>();
         }
 
         public Guid Id { get; set; }
         public string Name { get; set; }
         public Guid? RegionId { get; set; }
 
-        public virtual ICollection<Player> Player { get; set; }
+        public virtual ICollection<Player> Players { get; set; }
     }
 }
